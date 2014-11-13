@@ -1,6 +1,4 @@
-angular.module('gmailApp', [])
-  .controller([ '$scope', gmailAppController ]);
-
-function gmailAppController( $scope ){
-
-}
+angular.module('gmailApp', [ 'ui.router' ])
+  .config( [ '$urlRouterProvider', function( $urlRouterProvider ) {
+    // $urlRouterProvider.otherwise('/login');
+  }]);

@@ -1,0 +1,25 @@
+{
+  "name": "gmail-clone",
+  "version": "1.0.0",
+  "description": "gmail-clone in angular",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/armandopmj/gmail-clone.git"
+  },
+  "author": "Armando Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/armandopmj/gmail-clone/issues"
+  },
+  "homepage": "https://github.com/armandopmj/gmail-clone",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}

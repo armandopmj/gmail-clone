@@ -1,5 +1,5 @@
 angular
-    .module('gmailApp')
-    .constant('LoggedInUser', {
-        name: ''
-    });
+.module('gmailApp')
+.constant('LoggedInUser', {
+    name: ''
+});

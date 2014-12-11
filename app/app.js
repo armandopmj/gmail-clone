@@ -1,7 +1,8 @@
 angular
   .module('gmailApp', [ 
     'ui.router',
-    'gmailApp.login' ])
+    'gmailApp.login',
+    'gmailApp.dash' ])
   .config( [ '$urlRouterProvider', function( $urlRouterProvider ) {
     $urlRouterProvider.otherwise('/login');
   }]);

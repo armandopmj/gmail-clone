@@ -9,5 +9,5 @@ angular
         })
 }])
 .controller('dashController', [ '$scope', function( $scope ) {
-    $scope.someVar = [];
+    $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
 }])

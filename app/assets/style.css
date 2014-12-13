@@ -1,0 +1,10 @@
+.side-nav {
+    /*background-color: red;*/
+    width: 200px;
+    max-width: 200px;
+    height: 100%;
+}
+.side-nav-button {
+    background-color: green;
+    height: 50px;
+}

@@ -11,4 +11,26 @@ app.listen( port );
 // The optional options object can have the following properties.
 app.use('/', express.static( __dirname + '/../app' ));
 
+app.get( '/inbox', function( req, res ) {
+    //Do DB query for all inbox emails based on username
+    console.log( 'inside inbox' );
+    var date = new Date();
+    var messages = [
+        {
+            'subject': 'Hey!!',
+            'body': 'what is up!!',
+            'date': date,
+            'labels': ['inbox']
+        },
+        {
+            'subject': 'Hey2!!',
+            'body': 'dude this is your second message!!',
+            'date': date,
+            'labels': ['inbox', 'favorites']
+        }
+    ];
+    // Q: Find out if messages is automatically stringified
+    //      as it is sent over without any issues
+    res.send( messages );
+} )
 console.log('listening to PORT: ', port);

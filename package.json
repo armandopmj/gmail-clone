@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/armandopmj/gmail-clone",
   "dependencies": {
-    "express": "^4.10.2"
+    "express": "^4.10.2",
+    "nodemon": "^1.2.1"
   }
 }

@@ -11,3 +11,7 @@ angular
 .controller('dashController', [ '$scope', function( $scope ) {
     $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
 }])
+.factory('dashService' [ function(){
+    //Make api call to retrive user emails
+    
+}]);

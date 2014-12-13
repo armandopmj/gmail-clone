@@ -28,6 +28,7 @@ function LoginCtrl($scope, $state, LoginService, LoggedInUser){
             password: $scope.password
         };
         LoginService.login(data, function(){
+            //refactor this logic out of anonymous function and into service
             console.log( data );
             LoggedInUser.name = data.name;
             $state.go( 'dash' );

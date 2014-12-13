@@ -9,7 +9,10 @@ body {
     height: 100%;
     background-color: rgba( 40, 40, 40, 0.6);
     border: 1px solid black;
-/*    opacity: 0.4;
+/*  The opacity attribute cause all chidren to also 
+    inhert the same level of opacity so rgba with a
+    fourth argument should be used  
+    opacity: 0.4;
     filter: alpha(opacity=60);*/ /* For IE8 and earlier */
 }
 .side-nav {

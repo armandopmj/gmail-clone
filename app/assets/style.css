@@ -4,6 +4,14 @@ body {
     background-attachment: fixed;
     background-position: center; 
 }
+.top-banner {
+    background-color: white;
+    border: 2px solid blue;  
+}
+.dash-nav{
+    background-color: white;
+    border: 2px solid blue;  
+}
 .trans-body {
     width: 100%;
     height: 100%;
@@ -22,6 +30,6 @@ body {
     height: 100%;
 }
 .side-nav-button {
-    background-color: green;
+    border: 2px solid blue; 
     height: 50px;
 }

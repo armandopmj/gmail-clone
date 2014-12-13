@@ -12,6 +12,6 @@ angular
     $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
 }])
 .factory('dashService' [ function(){
-    //Make api call to retrive user emails
-    
+    //TODO: Make api call to retrive user emails
+
 }]);

@@ -8,10 +8,37 @@ angular
             controller: 'dashController'
         })
 }])
-.controller('dashController', [ '$scope', function( $scope ) {
-    $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
-}])
-.factory('dashService' [ '$http' function( $http ){
+.factory('dashService', [ 
+    '$http', 
+    dashService
+])
+.controller('dashController', [ 
+    '$scope', 
+    'dashService', 
+    dashController
+]);
+function dashService( $http ) {
     //TODO: Make api call to retrive user emails
+    var obj = {}
+    obj.getInbox = getInbox;
+    return obj;
 
-}]);
+    function getInbox(){ 
+        return $http
+            .get( 'api/inbox' )
+            .then( function( data ){
+                console.log('inside factory:', data.data );
+                return data;
+            })
+    }
+}
+function dashController( $scope, dashService ){
+    $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
+        var messages;
+        
+        dashService.getInbox()
+            .then(function( result ){
+                messages = result;
+                console.log( 'messages', messages );
+            });
+}

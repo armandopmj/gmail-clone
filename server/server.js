@@ -13,7 +13,13 @@ app.use('/', express.static( __dirname + '/../app' ));
 
 app.get( '/api/inbox', function( req, res ) {
     //Do DB query for all inbox emails based on username
-    console.log( 'inside inbox' );
+    console.log( 'req.query', req.query );
+    console.log( 'req.params', req.params );
+    // C: Both assignments below work hower req.params
+    //      checks more req properties for 'userName'
+    // var userName = req.query.userName;
+    var userName = req.param('userName');
+    console.log( "req.param('userName')", userName );
     var date = new Date();
     var messages = [
         {

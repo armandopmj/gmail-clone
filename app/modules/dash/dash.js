@@ -24,8 +24,11 @@ function dashService( $http ) {
     return obj;
 
     function getInbox(){ 
-        return $http
-            .get( 'api/inbox' )
+        return $http({ 
+                url: 'api/inbox', 
+                method: 'GET',
+                params: {'userName': 'Armando Perez'}
+            })
             .then( function( data ){
                 console.log('inside factory:', data.data );
                 return data;

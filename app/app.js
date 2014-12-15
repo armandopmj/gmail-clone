@@ -1,8 +1,13 @@
-angular
-.module('gmailApp', [ 
-    'ui.router',
-    'gmailApp.login',
-    'gmailApp.dash' ])
-.config( [ '$urlRouterProvider', function( $urlRouterProvider ) {
-    $urlRouterProvider.otherwise('/login');
-}]);
+(function(){
+    'use strict';
+    
+    angular
+    .module('gmailApp', [ 
+        'ui.router',
+        'gmailApp.login',
+        'gmailApp.dash' ])
+    .config( [ '$urlRouterProvider', function( $urlRouterProvider ) {
+        $urlRouterProvider.otherwise('/login');
+    }]);
+
+})();

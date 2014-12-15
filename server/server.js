@@ -17,7 +17,7 @@ app.get( '/api/inbox/:userName', function( req, res ) {
     console.log( 'req.params', req.params );
     // C: Both assignments below work hower req.params
     //      checks more req properties for 'userName'
-    // var userName = req.query.userName;
+    // var userName = req.params.userName;
     var userName = req.param('userName');
     console.log( "req.param('userName')", userName );
     var date = new Date();

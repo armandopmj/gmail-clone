@@ -11,8 +11,8 @@ app.listen( port );
 // The optional options object can have the following properties.
 app.use('/', express.static( __dirname + '/../app' ));
 
-app.get( '/api/inbox', function( req, res ) {
-    //Do DB query for all inbox emails based on username
+app.get( '/api/inbox/:userName', function( req, res ) {
+    // TODO: DB query for all inbox emails based on username
     console.log( 'req.query', req.query );
     console.log( 'req.params', req.params );
     // C: Both assignments below work hower req.params

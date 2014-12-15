@@ -23,11 +23,11 @@ function dashService( $http ) {
     obj.getInbox = getInbox;
     return obj;
 
-    function getInbox(){ 
+    function getInbox( userName ){ 
         return $http({ 
-                url: 'api/inbox', 
-                method: 'GET',
-                params: {'userName': 'Armando Perez'}
+                url: 'api/inbox/' + userName, 
+                method: 'GET'
+                // params: {'userName': 'Armando Perez'}
             })
             .then( function( data ){
                 console.log('inside factory:', data.data );
@@ -39,7 +39,7 @@ function dashController( $scope, dashService ){
     $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
         var messages;
         
-        dashService.getInbox()
+        dashService.getInbox( 'Armando Perez' )
             .then(function( result ){
                 messages = result;
                 console.log( 'messages', messages );

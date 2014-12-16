@@ -18,14 +18,15 @@
     ])
     .controller('dashController', [ 
         '$scope', 
-        'dashService', 
+        'dashService',
+        'LoggedInUser', 
         dashController
     ]);
     function dashService( $http ) {
         //TODO: Make api call to retrive user emails
-        var obj = {}
-        obj.getInbox = getInbox;
-        return obj;
+        var dashService = {}
+        dashService.getInbox = getInbox;
+        return dashService;
 
         function getInbox( userName ){ 
             //TODO: Refactor request to resolve, then retrun value
@@ -38,11 +39,11 @@
                 })
         }
     }
-    function dashController( $scope, dashService ){
+    function dashController( $scope, dashService, LoggedInUser ){
         $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
             var messages;
-            
-            dashService.getInbox( 'Armando Perez' )
+            console.log('LoggedInUser.name:', LoggedInUser.name)
+            dashService.getInbox( LoggedInUser.name )
                 .then(function( result ){
                     messages = result;
                     console.log( 'messages', messages );

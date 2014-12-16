@@ -15,36 +15,47 @@
         );
     }])
     .factory('LoginService', [
+        '$http',
+        'LoggedInUser',
+        '$state',
         LoginService
     ])  
     .controller('LoginCtrl', [
         '$scope',
-        '$state',
         'LoginService',
-        'LoggedInUser',
         LoginCtrl
     ]);
 
-    function LoginCtrl($scope, $state, LoginService, LoggedInUser){
+    function LoginCtrl($scope, LoginService){
         $scope.userLogin = function(){ 
             var data = {
                 name: $scope.name,
                 password: $scope.password
             };
-            LoginService.login(data, function(){
-                //TODO: refactor this logic out of anonymous function and into service
-                console.log( data );
-                LoggedInUser.name = data.name;
-                $state.go( 'dash' );
-            });   
+            LoginService.login( data );
         };
     };
 
-    function LoginService(){
-        loginServ = {};
-        loginServ.login = function( data, callback ) {
-            callback();
+    function LoginService( $http, LoggedInUser, $state ){
+        LoginService = {};
+        
+        LoginService.login = function( loginData ) {
+            $http({
+                url: 'auth/login',
+                method: 'GET',
+                params: loginData
+            })
+            .then(
+                function(result){
+                    LoggedInUser.name = loginData.name;
+                    LoggedInUser.id = result.id;
+                    $state.go( 'dash' );
+                }, 
+                function(err){
+                    alert("Not Valid User")
+                });
         }
-        return loginServ;
+        
+        return LoginService;
     }
 })();

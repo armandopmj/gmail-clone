@@ -16,8 +16,8 @@
     }])
     .factory('LoginService', [
         '$http',
-        'LoggedInUser',
         '$state',
+        'LoggedInUser',
         LoginService
     ])  
     .controller('LoginCtrl', [
@@ -36,10 +36,17 @@
         };
     };
 
-    function LoginService( $http, LoggedInUser, $state ){
+    function LoginService( $http, $state, LoggedInUser ){
+        /////////////////////////////////////////////////////////
+        // C: LoginService construction overview
         LoginService = {};
+        LoginService.login = login;
         
-        LoginService.login = function( loginData ) {
+        return LoginService;
+
+        //////////////////////////////////////////////////////////
+        // C: LoginService logic
+        function login( loginData ) {
             $http({
                 url: 'auth/login',
                 method: 'GET',
@@ -52,10 +59,11 @@
                     $state.go( 'dash' );
                 }, 
                 function(err){
+                    // TODO: make sure anonnymous fuction syntax is correct
+                    //          and handle error correctly
                     alert("Not Valid User")
                 });
         }
-        
-        return LoginService;
+
     }
 })();

@@ -28,12 +28,12 @@
         dashService.getInbox = getInbox;
         return dashService;
 
-        function getInbox( userName ){ 
+        function getInbox( userID ){
+            console.log('userID in getInbox function:', userID);
             //TODO: Refactor request to resolve, then retrun value
             //      vs returning promise 
-
             return $http({ 
-                    url: 'api/inbox/' + userName, 
+                    url: 'api/inbox/' + userID, 
                     method: 'GET'
                     // params: {'userName': 'Armando Perez'}
                 })
@@ -43,11 +43,15 @@
         $scope.boxes = ['inbox', 'sent', 'trash', 'spam'];
             var messages;
             console.log('LoggedInUser.name:', LoggedInUser.name)
-            dashService.getInbox( LoggedInUser.name )
-                .then(function( result ){
-                    messages = result;
-                    console.log( 'messages', messages );
-                });
+            console.log('LoggedInUser.id:', LoggedInUser.id)
+            // console.log('LoggedInUser.result:', LoggedInUser.result)
+            
+            dashService
+            .getInbox( LoggedInUser.id )
+            .then(function( result ){
+                messages = result;
+                console.log( 'messages', messages );
+            });
     }
     
 })();

@@ -54,8 +54,9 @@
             })
             .then(
                 function(result){
+                    // LoggedInUser.result = result;
                     LoggedInUser.name = loginData.name;
-                    LoggedInUser.id = result.id;
+                    LoggedInUser.id = result.data.id;
                     $state.go( 'dash' );
                 }, 
                 function(err){

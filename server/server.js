@@ -1,4 +1,5 @@
 var express = require('express');
+var data = require('./data.js');
 
 var app = express();
 var port = 3000;

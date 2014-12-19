@@ -18,6 +18,7 @@ app.get('/auth/login', function( req, res ){
     if( req.param('name') in validUsers ) res.send( {id: validUsers[req.param('name')]} );
     // TODO: When auth fails (when the name is not in validUser) send correct
     //          error status code and and anthing else that should be sent
+    else res.status(400).send( req.param('name') );
 });
 
 

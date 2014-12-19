@@ -59,9 +59,9 @@
                     $state.go( 'dash' );
                 }, 
                 function(err){
-                    // TODO: make sure anonnymous fuction syntax is correct
-                    //          and handle error correctly
-                    alert("Not Valid User")
+                    // C: Handle un-valid user names
+                    console.log( 'err:', err );
+                    alert( err.data + " is not a valid user.." )
                 });
         }
 
